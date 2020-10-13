@@ -1,6 +1,7 @@
 import React from 'react'
 import "./App.css"
 import { stockData } from "./data";
+import Stock from './Stock';
 
 function Stocks() {
     return (
@@ -9,9 +10,13 @@ function Stocks() {
             {stockData.map((data, key)=>{
                 return(
                     <div key={key}>
-                        {
-                            data.company + ", " + data.ticker + ", " + data.stockPrice + ", " + data.timeElapsed
-                        }
+                        <Stock
+                            key={key}
+                            company={data.company}
+                            ticker={data.ticker}
+                            stockPrice={data.stockPrice}
+                            timeElapsed={data.timeElapsed}
+                        />
                     </div>
                 )
             })}
